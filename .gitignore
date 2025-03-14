@@ -1,0 +1,17 @@
+# Archivos de Visual Studio
+.vs/
+.vscode/
+bin/
+obj/
+
+# Archivos de dependencias de NuGet
+packages/
+
+# Archivos de configuración específicos del sistema
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos de log
+*.log
