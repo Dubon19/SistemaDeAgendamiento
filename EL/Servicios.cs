@@ -21,6 +21,9 @@ namespace EL
 
         public int Duracion { get; set; }
 
+        [Required]
+        public bool Activo { get; set; }
+
         public DateTime? FechaCreacion { get; set; }
 
         public string CreadoPor { get; set; }

@@ -30,7 +30,7 @@ namespace DAL
                 }
 
                 Registro.Nombre = Entidad.Nombre;
-                Registro.Email = Entidad.Email;
+                Registro.Usuario = Entidad.Usuario;
                 Registro.RolId = Entidad.RolId;
                 Registro.FechaModificacion = DateTime.Now;
 

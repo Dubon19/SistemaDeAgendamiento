@@ -31,7 +31,7 @@ namespace EL
         [Required]
         public int VacacionesAcumuladas {  get; set; }
         [Required]
-        public bool Estado {  get; set; }
+        public bool Activo {  get; set; }
 
         [ForeignKey("CatalogoHorario")]
         public int CatalogoHorarioId { get; set; }

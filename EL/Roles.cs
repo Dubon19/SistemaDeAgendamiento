@@ -17,7 +17,8 @@ namespace EL
 
         public string Nombre { get; set; }
 
-        public bool Activo {  get; set; }
+        [Required]
+        public bool Activo { get; set; }
 
         public DateTime? FechaCreacion { get; set; }
 

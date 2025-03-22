@@ -19,6 +19,9 @@ namespace EL
         public int PermisoId { get; set; }
         public virtual Permisos Permiso { get; set; }
 
+        [Required]
+        public bool Activo { get; set; }
+
         public DateTime? FechaCreacion { get; set; }
 
         public string CreadoPor { get; set; }
