@@ -164,7 +164,15 @@
   <ItemGroup>
     <Compile Include="BDAgendamiento.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="DAL_CatalogoHorarios.cs" />
+    <Compile Include="DAL_Clientes.cs" />
+    <Compile Include="DAL_Empleados.cs" />
+    <Compile Include="DAL_Permisos.cs" />
     <Compile Include="DAL_Roles.cs" />
+    <Compile Include="DAL_RolesPermisos.cs" />
+    <Compile Include="DAL_Servicios.cs" />
+    <Compile Include="DAL_Usuarios.cs" />
+    <Compile Include="DAL_Vacaciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

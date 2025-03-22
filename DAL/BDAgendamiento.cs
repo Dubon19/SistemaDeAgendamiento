@@ -22,6 +22,7 @@ namespace DAL
         public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<Vacaciones> Vacaciones { get; set; }
 
+        public virtual DbSet<RolesPermisos> RolesPermisos { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
