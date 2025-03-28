@@ -23,7 +23,7 @@ namespace EL
 
         public bool Estado { get; set; }
 
-        [ForeignKey("Empleado")]
+        [ForeignKey("Empleados")]
         public int EmpleadoId { get; set; }
         public virtual Empleados Empleados { get; set; }
 

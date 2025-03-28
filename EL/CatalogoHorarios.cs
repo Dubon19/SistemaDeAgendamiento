@@ -8,13 +8,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EL
 {
-    [Table("atalogoHorarios")]
+    [Table("CatalogoHorarios")]
     public class CatalogoHorarios
     {
 
         [Key]
         public int CatalogoHorarioId { get; set; }
-        [Required][MaxLength(30)]
+        [Required][MaxLength(50)]
 
         public string NombreHorario {  get; set; }
         [Required]

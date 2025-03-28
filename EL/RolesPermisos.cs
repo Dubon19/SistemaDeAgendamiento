@@ -11,10 +11,12 @@ namespace EL
     [Table("RolesPermisos")]
     public class RolesPermisos
     {
-        [ForeignKey("Rol")]
+        [Key, Column(Order = 0)]
+        [ForeignKey("Roles")]
         public int RolId { get; set; }
         public virtual Roles Roles { get; set; }
 
+        [Key, Column(Order = 1)]
         [ForeignKey("Permiso")]
         public int PermisoId { get; set; }
         public virtual Permisos Permiso { get; set; }

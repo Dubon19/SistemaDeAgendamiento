@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EL;
+using DAL;
 
 namespace UI
 {
@@ -29,7 +31,16 @@ namespace UI
 
         private void AdmonClientes_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                List<Clientes> listaClientes = DAL_Clientes.Listar();
+                MessageBox.Show($"Clientes encontrados: {listaClientes.Count}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
         }
+
     }
 }

@@ -12,9 +12,9 @@ namespace DAL
     {
         private static string NombreAplicacion = "Agentamiento";
         private static string Servidor = "LAPTOP-9EKK179R";
-        private static string Usuario = "";
-        private static string Password = "";
-        private static string BaseDatos= "BDAgendamiento";
+        //private static string Usuario = "";
+        //private static string Password = "";
+        private static string BaseDatos= "DBGestionCita";
 
         public static string ConexionString(bool SqlAutentication = false)
         {
@@ -29,14 +29,14 @@ namespace DAL
 
 
             };
-            if (SqlAutentication)
+            /*if (SqlAutentication)
             {
 
                 ConstructorCC.UserID = Usuario;
                 ConstructorCC.Password = Password;
 
 
-            }
+            }*/
             return ConstructorCC.ConnectionString;
 
         }
