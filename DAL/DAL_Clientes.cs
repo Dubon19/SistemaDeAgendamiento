@@ -9,7 +9,7 @@ namespace DAL
     {
         public static Clientes Insert(Clientes Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 Entidad.Activo = true;
                 Entidad.FechaCreacion = DateTime.Now;
@@ -21,7 +21,7 @@ namespace DAL
 
         public static Clientes Update(Clientes Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 var Registro = bd.Clientes.Find(Entidad.ClienteId);
                 if (Registro == null)
@@ -29,7 +29,7 @@ namespace DAL
                     return new Clientes();
                 }
 
-                Registro.Name = Entidad.Name;
+                Registro.Nombre = Entidad.Nombre;
                 Registro.Apellido = Entidad.Apellido;
                 Registro.Email = Entidad.Email;
                 Registro.Telefono = Entidad.Telefono;
@@ -41,7 +41,7 @@ namespace DAL
 
         public static bool Delete(Clientes Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 var Registro = bd.Clientes.Find(Entidad.ClienteId);
                 if (Registro == null)
@@ -58,7 +58,7 @@ namespace DAL
 
         public static Clientes Registro(int IdRegistro)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 return bd.Clientes.Find(IdRegistro);
             }
@@ -66,7 +66,7 @@ namespace DAL
 
         public static List<Clientes> Listar(bool Activo = true)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 return bd.Clientes.Where(a => a.Activo == Activo).ToList();
             }

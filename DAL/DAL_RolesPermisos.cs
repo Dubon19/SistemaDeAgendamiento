@@ -9,7 +9,7 @@ namespace DAL
     {
         public static RolesPermisos Insert(RolesPermisos Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 Entidad.FechaCreacion = DateTime.Now;
                 bd.RolesPermisos.Add(Entidad);
@@ -20,7 +20,7 @@ namespace DAL
 
         public static RolesPermisos Update(RolesPermisos Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 var Registro = bd.RolesPermisos
                                  .FirstOrDefault(rp => rp.RolId == Entidad.RolId && rp.PermisoId == Entidad.PermisoId);
@@ -40,7 +40,7 @@ namespace DAL
 
         public static bool Delete(RolesPermisos Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 var Registro = bd.RolesPermisos
                                  .FirstOrDefault(rp => rp.RolId == Entidad.RolId && rp.PermisoId == Entidad.PermisoId);
@@ -57,7 +57,7 @@ namespace DAL
 
         public static RolesPermisos Registro(int RolId, int PermisoId)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 return bd.RolesPermisos
                          .FirstOrDefault(rp => rp.RolId == RolId && rp.PermisoId == PermisoId);
@@ -66,7 +66,7 @@ namespace DAL
 
         public static List<RolesPermisos> Listar()
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 return bd.RolesPermisos.ToList();
             }

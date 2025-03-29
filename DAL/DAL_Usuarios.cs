@@ -9,7 +9,7 @@ namespace DAL
     {
         public static Usuarios Insert(Usuarios Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 Entidad.Activo = true;
                 Entidad.FechaCreacion = DateTime.Now;
@@ -21,7 +21,7 @@ namespace DAL
 
         public static Usuarios Update(Usuarios Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 var Registro = bd.Usuarios.Find(Entidad.UsuarioId);
                 if (Registro == null)
@@ -41,7 +41,7 @@ namespace DAL
 
         public static bool Delete(Usuarios Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 var Registro = bd.Usuarios.Find(Entidad.UsuarioId);
                 if (Registro == null)
@@ -59,7 +59,7 @@ namespace DAL
 
         public static Usuarios Registro(int IdRegistro)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 return bd.Usuarios.Find(IdRegistro);
             }
@@ -67,7 +67,7 @@ namespace DAL
 
         public static List<Usuarios> Listar(bool Activo = true)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 return bd.Usuarios.Where(a => a.Activo == Activo).ToList();
             }

@@ -5,10 +5,10 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace DAL
 {
-    public class BDAgendamiento : DbContext
+    public class DBGestionCita : DbContext
 
     {
-        public BDAgendamiento() : base(Conexion.ConexionString(true)) {}
+        public DBGestionCita() : base(Conexion.ConexionString(true)) {}
 
 
 
@@ -26,15 +26,15 @@ namespace DAL
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CatalogoHorarios>().Property(e => e.CatalogoHorarioId).HasColumnType("nvarchar");
-            modelBuilder.Entity<Citas>().Property(e => e.CitaId).HasColumnType("nvarchar");
-            modelBuilder.Entity<Clientes>().Property(e => e.ClienteId).HasColumnType("nvarchar");
-            modelBuilder.Entity<Empleados>().Property(e => e.EmpleadoId).HasColumnType("nvarchar");
-            modelBuilder.Entity<Permisos>().Property(e => e.PermisoId).HasColumnType("nvarchar");
-            modelBuilder.Entity<Roles>().Property(e => e.RolId).HasColumnType("nvarchar");
-            modelBuilder.Entity<Servicios>().Property(e => e.ServicioId).HasColumnType("nvarchar"); 
-            modelBuilder.Entity<Usuarios>().Property(e => e.UsuarioId).HasColumnType("nvarchar");
-            modelBuilder.Entity<Vacaciones>().Property(e => e.VacacionId).HasColumnType("nvarchar");
+            modelBuilder.Entity<CatalogoHorarios>().Property(e => e.CatalogoHorarioId).HasColumnType("INT");
+            modelBuilder.Entity<Citas>().Property(e => e.CitaId).HasColumnType("INT");
+            modelBuilder.Entity<Clientes>().Property(e => e.ClienteId).HasColumnType("INT");
+            modelBuilder.Entity<Empleados>().Property(e => e.EmpleadoId).HasColumnType("INT");
+            modelBuilder.Entity<Permisos>().Property(e => e.PermisoId).HasColumnType("INT");
+            modelBuilder.Entity<Roles>().Property(e => e.RolId).HasColumnType("INT");
+            modelBuilder.Entity<Servicios>().Property(e => e.ServicioId).HasColumnType("INT"); 
+            modelBuilder.Entity<Usuarios>().Property(e => e.UsuarioId).HasColumnType("INT");
+            modelBuilder.Entity<Vacaciones>().Property(e => e.VacacionId).HasColumnType("INT");
 
 
 

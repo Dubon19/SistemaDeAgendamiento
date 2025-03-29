@@ -18,8 +18,9 @@ namespace EL
 
         public string Nombre { get; set; }
         [Required]
+        [StringLength(10)]
 
-        public int Duracion { get; set; }
+        public string Duracion { get; set; }
 
         [Required]
         public bool Activo { get; set; }

@@ -41,6 +41,8 @@
             this.btnAnular = new System.Windows.Forms.Button();
             this.GridCliente = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GridCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,6 +120,7 @@
             this.btnNuevo.TabIndex = 8;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnGuardar
             // 
@@ -127,6 +130,7 @@
             this.btnGuardar.TabIndex = 9;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnAnular
             // 
@@ -136,13 +140,14 @@
             this.btnAnular.TabIndex = 10;
             this.btnAnular.Text = "Anular";
             this.btnAnular.UseVisualStyleBackColor = true;
+            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
             // 
             // GridCliente
             // 
             this.GridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridCliente.Location = new System.Drawing.Point(31, 315);
             this.GridCliente.Name = "GridCliente";
-            this.GridCliente.Size = new System.Drawing.Size(555, 191);
+            this.GridCliente.Size = new System.Drawing.Size(709, 191);
             this.GridCliente.TabIndex = 11;
             // 
             // label1
@@ -154,11 +159,30 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Listado de clientes";
             // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(590, 289);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(150, 20);
+            this.txtBuscar.TabIndex = 13;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.textBuscar_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(479, 292);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(103, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Buscar por Telefono";
+            // 
             // AdmonClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 518);
+            this.ClientSize = new System.Drawing.Size(783, 518);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.GridCliente);
             this.Controls.Add(this.btnAnular);
@@ -199,5 +223,7 @@
         private System.Windows.Forms.Button btnAnular;
         private System.Windows.Forms.DataGridView GridCliente;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Label label2;
     }
 }

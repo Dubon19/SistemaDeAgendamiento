@@ -9,7 +9,7 @@ namespace DAL
     {
         public static Servicios Insert(Servicios Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 Entidad.Activo = true;
                 Entidad.FechaCreacion = DateTime.Now;
@@ -21,7 +21,7 @@ namespace DAL
 
         public static Servicios Update(Servicios Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 var Registro = bd.Servicios.Find(Entidad.ServicioId);
                 if (Registro == null)
@@ -40,7 +40,7 @@ namespace DAL
 
         public static bool Delete(Servicios Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 var Registro = bd.Servicios.Find(Entidad.ServicioId);
                 if (Registro == null)
@@ -58,7 +58,7 @@ namespace DAL
 
         public static Servicios Registro(int IdRegistro)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 return bd.Servicios.Find(IdRegistro);
             }
@@ -66,7 +66,7 @@ namespace DAL
 
         public static List<Servicios> Listar(bool Activo = true)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 return bd.Servicios.Where(a => a.Activo == Activo).ToList();
             }

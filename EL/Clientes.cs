@@ -15,14 +15,14 @@ namespace EL
         public int ClienteId { get; set; }
         [Required][MaxLength(50)]
 
-        public string Name {  get; set; }
+        public string Nombre {  get; set; }
         [Required][MaxLength(50)]
 
         public string Apellido { get; set; }
         [Required]
 
-        public int Telefono { get; set; }
-        [Required][MaxLength(50)]
+        public string Telefono { get; set; }
+        [Required][MaxLength(20)]
 
         public string Email {  set; get; }
 

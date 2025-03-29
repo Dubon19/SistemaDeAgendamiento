@@ -9,7 +9,7 @@ namespace DAL
     {
         public static Permisos Insert(Permisos Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 Entidad.Activo = true;
                 Entidad.FechaCreacion = DateTime.Now;
@@ -21,7 +21,7 @@ namespace DAL
 
         public static Permisos Update(Permisos Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 var Registro = bd.Permisos.Find(Entidad.PermisoId);
                 if (Registro == null)
@@ -38,7 +38,7 @@ namespace DAL
 
         public static bool Delete(Permisos Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 var Registro = bd.Permisos.Find(Entidad.PermisoId);
                 if (Registro == null)
@@ -55,7 +55,7 @@ namespace DAL
 
         public static Permisos Registro(int IdRegistro)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 return bd.Permisos.Find(IdRegistro);
             }
@@ -63,7 +63,7 @@ namespace DAL
 
         public static List<Permisos> Listar(bool Activo = true)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 return bd.Permisos.Where(a => a.Activo == Activo).ToList();
             }

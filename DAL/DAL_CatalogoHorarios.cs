@@ -9,7 +9,7 @@ namespace DAL
     {
         public static CatalogoHorarios Insert(CatalogoHorarios Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 Entidad.Activo = true;
                 Entidad.FechaCreacion = DateTime.Now;
@@ -21,7 +21,7 @@ namespace DAL
 
         public static CatalogoHorarios Update(CatalogoHorarios Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 var Registro = bd.CatalogoHorarios.Find(Entidad.CatalogoHorarioId);
                 if (Registro == null)
@@ -42,7 +42,7 @@ namespace DAL
 
         public static bool Delete(CatalogoHorarios Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 var Registro = bd.CatalogoHorarios.Find(Entidad.CatalogoHorarioId);
                 if (Registro == null)
@@ -59,7 +59,7 @@ namespace DAL
 
         public static CatalogoHorarios Registro(int IdRegistro)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 return bd.CatalogoHorarios.Find(IdRegistro);
             }
@@ -67,7 +67,7 @@ namespace DAL
 
         public static List<CatalogoHorarios> Listar(bool Activo = true)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 return bd.CatalogoHorarios.Where(a => a.Activo == Activo).ToList();
             }

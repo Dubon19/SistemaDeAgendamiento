@@ -11,7 +11,7 @@ namespace DAL
     {
        public static Roles Insert(Roles Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 Entidad.Activo = true;
                 Entidad.FechaCreacion = DateTime.Now;
@@ -28,7 +28,7 @@ namespace DAL
 
         public static Roles Update(Roles Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 var Registro = bd.Roles.Find(Entidad.RolId);
                 if (Registro == null)
@@ -48,7 +48,7 @@ namespace DAL
 
         public static bool Delete(Roles Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 var Registro = bd.Roles.Find(Entidad.RolId);
                 if (Registro == null)
@@ -69,14 +69,14 @@ namespace DAL
 
         public static Roles Registro(int IdRegistro)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             return bd.Roles.Find(IdRegistro);
         }
 
 
         public static List<Roles>Listar(bool Activo = true)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
                 return bd.Roles.Where(a=>a.Activo==Activo).ToList();
 
 

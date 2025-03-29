@@ -9,7 +9,7 @@ namespace DAL
     {
         public static Vacaciones Insert(Vacaciones Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 Entidad.FechaCreacion = DateTime.Now;
                 bd.Vacaciones.Add(Entidad);
@@ -20,7 +20,7 @@ namespace DAL
 
         public static Vacaciones Update(Vacaciones Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 var Registro = bd.Vacaciones
                                  .FirstOrDefault(v => v.VacacionId == Entidad.VacacionId); 
@@ -40,7 +40,7 @@ namespace DAL
 
         public static bool Delete(Vacaciones Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 var Registro = bd.Vacaciones
                                  .FirstOrDefault(v => v.VacacionId == Entidad.VacacionId);
@@ -57,7 +57,7 @@ namespace DAL
 
         public static Vacaciones Registro(int VacacionesId)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 return bd.Vacaciones
                          .FirstOrDefault(v => v.VacacionId == VacacionesId);
@@ -66,7 +66,7 @@ namespace DAL
 
         public static List<Vacaciones> Listar()
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 return bd.Vacaciones.ToList();
             }

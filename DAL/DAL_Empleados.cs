@@ -9,7 +9,7 @@ namespace DAL
     {
         public static Empleados Insert(Empleados Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 Entidad.Activo = true;
                 Entidad.FechaCreacion = DateTime.Now;
@@ -21,7 +21,7 @@ namespace DAL
 
         public static Empleados Update(Empleados Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 var Registro = bd.Empleados.Find(Entidad.EmpleadoId);
                 if (Registro == null)
@@ -42,7 +42,7 @@ namespace DAL
 
         public static bool Delete(Empleados Entidad)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 var Registro = bd.Empleados.Find(Entidad.EmpleadoId);
                 if (Registro == null)
@@ -60,7 +60,7 @@ namespace DAL
 
         public static Empleados Registro(int IdRegistro)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 return bd.Empleados.Find(IdRegistro);
             }
@@ -68,7 +68,7 @@ namespace DAL
 
         public static List<Empleados> Listar(bool Activo = true)
         {
-            using (BDAgendamiento bd = new BDAgendamiento())
+            using (DBGestionCita bd = new DBGestionCita())
             {
                 return bd.Empleados.Where(a => a.Activo == Activo).ToList();
             }
