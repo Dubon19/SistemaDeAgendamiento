@@ -29,5 +29,16 @@ namespace UI
             frmServicios.Show();
 
         }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHorarios_Click(object sender, EventArgs e)
+        {
+            AdmonCatalogoHorario frmCatalogoHorario = new AdmonCatalogoHorario();
+            frmCatalogoHorario.Show();
+        }
     }
 }

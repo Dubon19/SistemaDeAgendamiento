@@ -18,22 +18,13 @@ namespace UI
         public AdmonServicios()
         {
             InitializeComponent();
+            CargarServicios();
         }
 
         private void LimpiarCampos()
         {
             txtServicios.Text = string.Empty;
             txtDuracion.Text = string.Empty;
-        }
-
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            LimpiarCampos();
-        }
-
-        private void txtServicios_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnsave_Click(object sender, EventArgs e)
@@ -44,10 +35,6 @@ namespace UI
                 return;
             }
 
-            // Guardar el servicio en la base de datos
-            string nombreServicio = txtServicios.Text;
-
-            // Usar TryParse para validar y convertir la duración a un entero
             int duracion;
             if (!int.TryParse(txtDuracion.Text, out duracion))
             {
@@ -55,31 +42,53 @@ namespace UI
                 return;
             }
 
-            // Aquí puedes agregar tu lógica de inserción en la base de datos
-            // Ejemplo: InsertarServicio(nombreServicio, duracion);
-            // Luego, actualizar el DataGridView con los nuevos datos
+            Servicios nuevoServicio = new Servicios
+            {
+                Nombre = txtServicios.Text,
+                Duracion = txtDuracion.Text
+            };
+
+            DAL_Servicios.Insert(nuevoServicio);
 
             MessageBox.Show("Servicio guardado correctamente.");
-            CargarServicios();
+            CargarServicios(); // Recargar los datos en el Grid
             LimpiarCampos();
-
         }
 
         private void btndelete_Click(object sender, EventArgs e)
         {
-            LimpiarCampos();
+            if (GridServicio.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione un servicio para eliminar.");
+                return;
+            }
+
+            int servicioId = Convert.ToInt32(GridServicio.SelectedRows[0].Cells["ServicioId"].Value);
+
+            Servicios servicioEliminar = new Servicios { ServicioId = servicioId };
+            DAL_Servicios.Delete(servicioEliminar);
+
+            MessageBox.Show("Servicio eliminado correctamente.");
+            CargarServicios();
         }
 
         private void CargarServicios()
         {
-            // Aquí deberías cargar los servicios desde la base de datos
-            // Ejemplo: var servicios = ObtenerServicios();
+            List<Servicios> listaServicios = DAL_Servicios.Listar();
 
-            // Asumimos que "servicios" es una lista de objetos de tipo Servicio
-            // dataGridView1.DataSource = servicios;
+            if (listaServicios != null && listaServicios.Count > 0)
+            {
+                GridServicio.DataSource = listaServicios;
+            }
+            else
+            {
+                GridServicio.DataSource = null;
+            }
+        }
 
-            // Si tienes un DataTable, sería algo así:
-            // dataGridView1.DataSource = servicioTable;
+        private void GridServicio_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

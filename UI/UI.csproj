@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdmonCatalogoHorario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdmonCatalogoHorario.Designer.cs">
+      <DependentUpon>AdmonCatalogoHorario.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdmonClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdmonCatalogoHorario.resx">
+      <DependentUpon>AdmonCatalogoHorario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdmonClientes.resx">
       <DependentUpon>AdmonClientes.cs</DependentUpon>
     </EmbeddedResource>

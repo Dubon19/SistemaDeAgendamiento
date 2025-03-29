@@ -64,7 +64,6 @@
             this.txtServicios.Name = "txtServicios";
             this.txtServicios.Size = new System.Drawing.Size(211, 20);
             this.txtServicios.TabIndex = 2;
-            this.txtServicios.TextChanged += new System.EventHandler(this.txtServicios_TextChanged);
             // 
             // txtDuracion
             // 
@@ -84,11 +83,13 @@
             // 
             // GridServicio
             // 
+            this.GridServicio.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.GridServicio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridServicio.Location = new System.Drawing.Point(52, 179);
             this.GridServicio.Name = "GridServicio";
             this.GridServicio.Size = new System.Drawing.Size(423, 150);
             this.GridServicio.TabIndex = 5;
+            this.GridServicio.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridServicio_CellContentClick);
             // 
             // btnNew
             // 
@@ -121,6 +122,7 @@
             // 
             // AdmonServicios
             // 
+            this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(552, 341);
             this.Controls.Add(this.btndelete);
             this.Controls.Add(this.btnsave);
