@@ -34,13 +34,14 @@ namespace DAL
                 if (Registro == null)
                 {
                     return new Roles();
-
                 }
-                Registro.RolId = Entidad.RolId;
+
+                // Actualizar los campos
+                Registro.Nombre = Entidad.Nombre; // Asignar el nuevo nombre
+                Registro.Activo = Entidad.Activo;  // Asignar el nuevo estado de 'Activo'
                 Registro.FechaModificacion = DateTime.Now;
                 bd.SaveChanges();
                 return Registro;
-
             }
 
 

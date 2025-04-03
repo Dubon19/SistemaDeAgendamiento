@@ -14,6 +14,7 @@ namespace EL
         [Key]
         public int RolId { get; set; }
         [Required][StringLength(50)]
+        [Column("NombreRol")]
 
         public string Nombre { get; set; }
 

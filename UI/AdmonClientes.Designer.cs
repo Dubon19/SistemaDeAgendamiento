@@ -144,11 +144,13 @@
             // 
             // GridCliente
             // 
+            this.GridCliente.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.GridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridCliente.Location = new System.Drawing.Point(31, 315);
             this.GridCliente.Name = "GridCliente";
             this.GridCliente.Size = new System.Drawing.Size(709, 191);
             this.GridCliente.TabIndex = 11;
+            this.GridCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridCliente_CellContentClick);
             // 
             // label1
             // 
@@ -180,6 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(783, 518);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtBuscar);

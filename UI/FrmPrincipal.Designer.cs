@@ -32,13 +32,14 @@
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnServicios = new System.Windows.Forms.Button();
             this.btnHorarios = new System.Windows.Forms.Button();
+            this.btnAdmon = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(34, 55);
+            this.label1.Location = new System.Drawing.Point(162, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 25);
             this.label1.TabIndex = 0;
@@ -46,40 +47,63 @@
             // 
             // btnClientes
             // 
-            this.btnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClientes.Location = new System.Drawing.Point(441, 12);
+            this.btnClientes.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClientes.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnClientes.Location = new System.Drawing.Point(147, 80);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(75, 23);
+            this.btnClientes.Size = new System.Drawing.Size(119, 50);
             this.btnClientes.TabIndex = 1;
             this.btnClientes.Text = "CLIENTES";
-            this.btnClientes.UseVisualStyleBackColor = true;
+            this.btnClientes.UseVisualStyleBackColor = false;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // btnServicios
             // 
-            this.btnServicios.Location = new System.Drawing.Point(532, 12);
+            this.btnServicios.BackColor = System.Drawing.Color.Green;
+            this.btnServicios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnServicios.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnServicios.Location = new System.Drawing.Point(147, 155);
             this.btnServicios.Name = "btnServicios";
-            this.btnServicios.Size = new System.Drawing.Size(75, 23);
+            this.btnServicios.Size = new System.Drawing.Size(119, 50);
             this.btnServicios.TabIndex = 2;
             this.btnServicios.Text = "SERVICIOS";
-            this.btnServicios.UseVisualStyleBackColor = true;
+            this.btnServicios.UseVisualStyleBackColor = false;
             this.btnServicios.Click += new System.EventHandler(this.btnServicios_Click);
             // 
             // btnHorarios
             // 
-            this.btnHorarios.Location = new System.Drawing.Point(631, 12);
+            this.btnHorarios.BackColor = System.Drawing.Color.LightCoral;
+            this.btnHorarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHorarios.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnHorarios.Location = new System.Drawing.Point(147, 241);
             this.btnHorarios.Name = "btnHorarios";
-            this.btnHorarios.Size = new System.Drawing.Size(75, 23);
+            this.btnHorarios.Size = new System.Drawing.Size(119, 50);
             this.btnHorarios.TabIndex = 3;
             this.btnHorarios.Text = "HORARIOS";
-            this.btnHorarios.UseVisualStyleBackColor = true;
+            this.btnHorarios.UseVisualStyleBackColor = false;
             this.btnHorarios.Click += new System.EventHandler(this.btnHorarios_Click);
+            // 
+            // btnAdmon
+            // 
+            this.btnAdmon.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnAdmon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdmon.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAdmon.Location = new System.Drawing.Point(487, 12);
+            this.btnAdmon.Name = "btnAdmon";
+            this.btnAdmon.Size = new System.Drawing.Size(119, 38);
+            this.btnAdmon.TabIndex = 4;
+            this.btnAdmon.Text = "ADMINISTRADOR";
+            this.btnAdmon.UseVisualStyleBackColor = false;
+            this.btnAdmon.Click += new System.EventHandler(this.btnAdmon_Click);
             // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(767, 450);
+            this.Controls.Add(this.btnAdmon);
             this.Controls.Add(this.btnHorarios);
             this.Controls.Add(this.btnServicios);
             this.Controls.Add(this.btnClientes);
@@ -98,5 +122,6 @@
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnServicios;
         private System.Windows.Forms.Button btnHorarios;
+        private System.Windows.Forms.Button btnAdmon;
     }
 }

@@ -128,5 +128,10 @@ namespace UI
                 .ToList();
             GridCliente.DataSource = listaFiltrada;
         }
+
+        private void GridCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
