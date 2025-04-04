@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+
 namespace EL
 {
     [Table("CatalogoHorarios")]
@@ -42,7 +43,6 @@ namespace EL
         public DateTime? FechaModificacion { get; set; }
 
         public string ModificadoPor { get; set; }
-
 
 
 

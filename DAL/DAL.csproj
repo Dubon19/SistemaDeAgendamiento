@@ -211,6 +211,7 @@
     <Compile Include="BDAgendamiento.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="DAL_CatalogoHorarios.cs" />
+    <Compile Include="DAL_Citas.cs" />
     <Compile Include="DAL_Clientes.cs" />
     <Compile Include="DAL_Empleados.cs" />
     <Compile Include="DAL_Permisos.cs" />

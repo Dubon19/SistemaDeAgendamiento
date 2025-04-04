@@ -64,5 +64,13 @@ namespace UI
 
             this.Show(); // Muestra nuevamente el formulario principal al cerrar el otro formulario
         }
+
+        private void btnCitas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmCitas formCitas = new FrmCitas();
+            formCitas.Show();
+
+        }
     }
 }

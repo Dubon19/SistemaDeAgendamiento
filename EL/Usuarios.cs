@@ -15,11 +15,7 @@ namespace EL
         public int UsuarioId { get; set; }
         [Required][StringLength(50)]
 
-        public string Nombre { get; set; }
-        [Required][StringLength(50)]
-
-        public string Apellido { get; set; }
-        [Required][StringLength(50)]
+      
 
         public string Usuario { get; set; }
         [Required]

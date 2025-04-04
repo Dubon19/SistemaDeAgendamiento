@@ -19,6 +19,14 @@ namespace DAL
             }
         }
 
+        public static Empleados ObtenerPorId(int empleadoId)
+        {
+            using (DBGestionCita bd = new DBGestionCita())
+            {
+                return bd.Empleados.SingleOrDefault(e => e.EmpleadoId == empleadoId);
+            }
+        }
+
         public static Empleados Update(Empleados Entidad)
         {
             using (DBGestionCita bd = new DBGestionCita())
@@ -73,5 +81,9 @@ namespace DAL
                 return bd.Empleados.Where(a => a.Activo == Activo).ToList();
             }
         }
+
+
+
+
     }
 }

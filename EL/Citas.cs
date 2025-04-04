@@ -14,6 +14,10 @@ namespace EL
         [Key]
         public int CitaId { get; set; }
 
+        [ForeignKey("Empleado")]
+        public int EmpleadoId { get; set; }
+        public virtual Empleados Empleado { get; set; }
+
         [ForeignKey("Cliente")]
         public int ClienteId { get; set; }
         public virtual Clientes Cliente { get; set; }

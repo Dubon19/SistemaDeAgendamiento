@@ -30,11 +30,10 @@ namespace UI
 
         private void CargarHorarios()
         {
-            // Obtener los horarios desde la base de datos
-            var horarios = DAL_CatalogoHorarios.Listar(true); // Puedes filtrar por 'Activo' si es necesario
-
-            // Asignar los horarios al DataGridView (o cualquier otro control)
-            dataGridView1.DataSource = horarios;
+            var horarios = DAL_CatalogoHorarios.Listar(); // Obtiene los horarios desde la BD
+            cmbNombreHorario.DataSource = horarios;
+            cmbNombreHorario.DisplayMember = "NombreHorario";  // Muestra los nombres en el ComboBox
+            cmbNombreHorario.ValueMember = "CatalogoHorarioId"; // Guarda internamente el ID
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -74,6 +73,9 @@ namespace UI
                                 { "Sabado", 6 },
                                 { "Domingo", 7 }
                 };
+
+           
+
 
 
             // Crear objeto para la base de datos
@@ -115,6 +117,8 @@ namespace UI
             dataGridView1.Refresh(); // Refresca el DataGridView visualmente
 
         }
+
+        
 
         private void btnAnular_Click(object sender, EventArgs e)
         {

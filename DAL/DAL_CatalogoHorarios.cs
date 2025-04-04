@@ -72,6 +72,15 @@ namespace DAL
                 return bd.CatalogoHorarios.Where(a => a.Activo == Activo).ToList();
             }
         }
+
+        public static List<CatalogoHorarios> ObtenerTodos()
+        {
+            using (DBGestionCita bd = new DBGestionCita())
+            {
+                return bd.CatalogoHorarios.ToList(); // Esto obtiene todos los registros de la tabla CatalogoHorarios
+            }
+        }
+
     }
 }
 

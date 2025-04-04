@@ -32,16 +32,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnHorarios = new System.Windows.Forms.Button();
             this.btnPermisos = new System.Windows.Forms.Button();
             this.btnRoles = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -68,6 +65,7 @@
             this.btnUsuarios.TabIndex = 1;
             this.btnUsuarios.Text = "USUARIOS";
             this.btnUsuarios.UseVisualStyleBackColor = false;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
             // pictureBox1
             // 
@@ -81,24 +79,12 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // btnEmpleados
-            // 
-            this.btnEmpleados.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmpleados.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnEmpleados.Location = new System.Drawing.Point(99, 176);
-            this.btnEmpleados.Name = "btnEmpleados";
-            this.btnEmpleados.Size = new System.Drawing.Size(162, 36);
-            this.btnEmpleados.TabIndex = 3;
-            this.btnEmpleados.Text = "EMPLEADOS";
-            this.btnEmpleados.UseVisualStyleBackColor = false;
-            // 
             // btnHorarios
             // 
             this.btnHorarios.BackColor = System.Drawing.Color.SteelBlue;
             this.btnHorarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHorarios.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnHorarios.Location = new System.Drawing.Point(99, 242);
+            this.btnHorarios.Location = new System.Drawing.Point(99, 207);
             this.btnHorarios.Name = "btnHorarios";
             this.btnHorarios.Size = new System.Drawing.Size(162, 36);
             this.btnHorarios.TabIndex = 4;
@@ -110,7 +96,7 @@
             this.btnPermisos.BackColor = System.Drawing.Color.SteelBlue;
             this.btnPermisos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPermisos.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnPermisos.Location = new System.Drawing.Point(99, 308);
+            this.btnPermisos.Location = new System.Drawing.Point(99, 295);
             this.btnPermisos.Name = "btnPermisos";
             this.btnPermisos.Size = new System.Drawing.Size(162, 36);
             this.btnPermisos.TabIndex = 5;
@@ -130,24 +116,12 @@
             this.btnRoles.UseVisualStyleBackColor = false;
             this.btnRoles.Click += new System.EventHandler(this.btnRoles_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(38, 176);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(46, 36);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
-            // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(38, 242);
+            this.pictureBox3.Location = new System.Drawing.Point(38, 207);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(46, 36);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -159,7 +133,7 @@
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(38, 308);
+            this.pictureBox4.Location = new System.Drawing.Point(38, 295);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(46, 36);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -182,15 +156,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 450);
+            this.ClientSize = new System.Drawing.Size(350, 501);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnRoles);
             this.Controls.Add(this.btnPermisos);
             this.Controls.Add(this.btnHorarios);
-            this.Controls.Add(this.btnEmpleados);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnUsuarios);
             this.Controls.Add(this.label1);
@@ -198,7 +170,6 @@
             this.Text = "FrmConfiguracion";
             this.Load += new System.EventHandler(this.FrmConfiguracion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -212,11 +183,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnEmpleados;
         private System.Windows.Forms.Button btnHorarios;
         private System.Windows.Forms.Button btnPermisos;
         private System.Windows.Forms.Button btnRoles;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;

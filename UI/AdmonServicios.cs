@@ -48,11 +48,24 @@ namespace UI
                 Duracion = txtDuracion.Text
             };
 
-            DAL_Servicios.Insert(nuevoServicio);
+            DAL_Servicios.Insert(nuevoServicio); // Método para insertar el servicio en la base de datos
 
             MessageBox.Show("Servicio guardado correctamente.");
-            CargarServicios(); // Recargar los datos en el Grid
-            LimpiarCampos();
+
+            // Aquí llamamos a un método para actualizar el ComboBox en FrmCitas
+            ActualizarComboBoxCitas();
+
+            LimpiarCampos(); // Limpiar campos después de guardar
+        }
+
+        // Método para actualizar el ComboBox de Citas
+        private void ActualizarComboBoxCitas()
+        {
+            // Buscamos una instancia del formulario FrmCitas (asumiendo que tienes acceso a él)
+            if (Application.OpenForms["FrmCitas"] is FrmCitas frmCitas)
+            {
+                frmCitas.CargarServicios(); // Método que recarga el ComboBox en FrmCitas
+            }
         }
 
         private void btndelete_Click(object sender, EventArgs e)
@@ -90,5 +103,7 @@ namespace UI
         {
 
         }
+
+       
     }
 }

@@ -36,16 +36,20 @@ namespace EL
         [ForeignKey("CatalogoHorario")]
         public int CatalogoHorarioId { get; set; }
         public virtual CatalogoHorarios CatalogoHorario { get; set; }
+        [ForeignKey("Usuario")]
+        public int UsuarioId { get; set; }
+        public virtual Usuarios Usuario { get; set; } // Relación de navegación
 
         public DateTime? FechaCreacion { get; set; }
-
-        public string CreadoPor {  get; set; }
+        public string CreadoPor { get; set; }
 
         public DateTime? FechaModificacion { get; set; }
-
         public string ModificadoPor { get; set; }
 
-
+        public string NombreYApellido
+        {
+            get { return $"{Nombre} {Apellido}"; }
+        }
 
 
     }

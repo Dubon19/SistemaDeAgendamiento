@@ -2,6 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Data.Entity;
 
 namespace DAL
 {
@@ -13,9 +16,30 @@ namespace DAL
             {
                 Entidad.Activo = true;
                 Entidad.FechaCreacion = DateTime.Now;
+
+                // Aquí deberías asegurarte de que la contraseña se establezca correctamente
+                if (Entidad.Contrasena == null || Entidad.Contrasena.Length == 0)
+                {
+                    // Asegúrate de encriptar la contraseña antes de guardarla
+                    Entidad.Contrasena = EncriptarContrasena("defaultPassword"); // Aquí se debería usar un método para encriptar la contraseña
+                }
+
                 bd.Usuarios.Add(Entidad);
                 bd.SaveChanges();
                 return Entidad;
+            }
+        }
+
+        public static byte[] EncriptarContrasena(string contrasena)
+        {
+            // Crea una instancia del algoritmo SHA-256
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                // Convierte la contraseña a un arreglo de bytes
+                byte[] bytes = Encoding.UTF8.GetBytes(contrasena);
+
+                // Devuelve la contraseña encriptada en formato byte[]
+                return sha256Hash.ComputeHash(bytes);
             }
         }
 
@@ -29,9 +53,17 @@ namespace DAL
                     return new Usuarios();
                 }
 
-                Registro.Nombre = Entidad.Nombre;
+                // Actualiza los campos de usuario si han cambiado
                 Registro.Usuario = Entidad.Usuario;
                 Registro.RolId = Entidad.RolId;
+
+                // Si la contraseña es diferente a la actual, se actualiza (sin encriptación)
+                if (Entidad.Contrasena != null && Entidad.Contrasena.Length > 0)
+                {
+                    // Almacena la contraseña tal como está (sin encriptarla)
+                    Registro.Contrasena = Entidad.Contrasena;  // Almacenar en texto plano
+                }
+
                 Registro.FechaModificacion = DateTime.Now;
 
                 bd.SaveChanges();
@@ -39,21 +71,20 @@ namespace DAL
             }
         }
 
-        public static bool Delete(Usuarios Entidad)
+        public static bool Delete(int usuarioId)
         {
             using (DBGestionCita bd = new DBGestionCita())
             {
-                var Registro = bd.Usuarios.Find(Entidad.UsuarioId);
-                if (Registro == null)
+                var usuario = bd.Usuarios.Find(usuarioId);  // Buscar el usuario por el 'UsuarioId' (tipo int)
+                if (usuario == null)
                 {
-                    return false;
+                    return false;  // Si no se encuentra el usuario
                 }
 
-                Registro.Activo = false;
-                Registro.FechaModificacion = DateTime.Now;
-
-                bd.SaveChanges();
-                return true;
+                usuario.Activo = false;  // Desactivar el usuario
+                usuario.FechaModificacion = DateTime.Now;
+                bd.SaveChanges();  // Guardar los cambios en la base de datos
+                return true;  // Usuario eliminado
             }
         }
 
@@ -69,7 +100,10 @@ namespace DAL
         {
             using (DBGestionCita bd = new DBGestionCita())
             {
-                return bd.Usuarios.Where(a => a.Activo == Activo).ToList();
+                return bd.Usuarios
+                         .Include(u => u.Rol) // Cargar la relación con Roles correctamente
+                         .Where(a => a.Activo == Activo)
+                         .ToList();
             }
         }
     }
