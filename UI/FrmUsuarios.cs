@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -54,35 +55,31 @@ namespace UI
         {
             if (!string.IsNullOrWhiteSpace(txtUsuario.Text) && !string.IsNullOrWhiteSpace(txtPassword.Text) && cmbRol.SelectedIndex != -1)
             {
-                // Convertir la contraseña de string a byte[]
-                byte[] contrasenaBytes = System.Text.Encoding.UTF8.GetBytes(txtPassword.Text);
+                // ✅ Encriptar la contraseña correctamente usando SHA-256
+                byte[] contrasenaBytes = DAL_Usuarios.EncriptarContrasena(txtPassword.Text);
 
                 // Crear un nuevo objeto Usuario
                 Usuarios usuario = new Usuarios
                 {
                     Usuario = txtUsuario.Text,
-                    Contrasena = contrasenaBytes,  // Asignar el byte[]
+                    Contrasena = contrasenaBytes,
                     RolId = Convert.ToInt32(cmbRol.SelectedValue)
                 };
 
-                // Insertar el Usuario en la base de datos
-                DAL_Usuarios.Insert(usuario);
-
-                // Cargar nuevamente los usuarios en el DataGrid (si es necesario)
+                var usuarioInsertado = DAL_Usuarios.Insert(usuario);
                 CargarUsuarios();
-
-                // Cerrar el formulario de Usuarios
                 this.Close();
 
-                // Abrir el formulario de Empleados y pasar el UsuarioId
-                FrmEmpleados frmEmpleados = new FrmEmpleados(usuario.UsuarioId);  // Pasa el UsuarioId al formulario de Empleados
+                FrmEmpleados frmEmpleados = new FrmEmpleados(usuarioInsertado.UsuarioId);
                 frmEmpleados.Show();
+
             }
             else
             {
                 MessageBox.Show("Complete todos los campos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
 
         private void btnAnular_Click(object sender, EventArgs e)
         {
@@ -111,5 +108,8 @@ namespace UI
         {
 
         }
+
+        
+
     }
 }

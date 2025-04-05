@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Data.Entity;
+using System.Data.SqlClient;
 
 namespace DAL
 {
@@ -106,5 +107,21 @@ namespace DAL
                          .ToList();
             }
         }
+
+        public static bool ValidarUsuario(string usuario, string contrasena)
+        {
+            byte[] contrasenaEncriptada = EncriptarContrasena(contrasena);
+
+            using (DBGestionCita bd = new DBGestionCita())
+            {
+                var user = bd.Usuarios.FirstOrDefault(u => u.Usuario == usuario && u.Activo == true);
+                if (user == null) return false;
+
+                // Comparar byte por byte
+                return user.Contrasena.SequenceEqual(contrasenaEncriptada);
+            }
+        }
+
+
     }
 }

@@ -69,8 +69,8 @@ namespace UI
         {
             this.Hide();
             FrmCitas formCitas = new FrmCitas();
-            formCitas.Show();
-
+            formCitas.ShowDialog();  // Mostrar como modal
+            this.Show();             // Mostrar FrmPrincipal al cerrar FrmCitas
         }
     }
 }

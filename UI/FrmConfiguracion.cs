@@ -52,6 +52,18 @@ namespace UI
             frmUsuarios.Show();
         }
 
-        
+        private void btnHorarios_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Oculta el formulario FrmConfiguracion
+
+            // Crea una instancia del formulario AdmonCatalogoHorario
+            AdmonCatalogoHorario frmCatalogoHorario = new AdmonCatalogoHorario();
+
+            // Suscríbete al evento FormClosed para mostrar el formulario de configuración cuando AdmonCatalogoHorario se cierre
+            frmCatalogoHorario.FormClosed += (s, args) => this.Show();
+
+            // Muestra el formulario AdmonCatalogoHorario
+            frmCatalogoHorario.Show();
+        }
     }
 }

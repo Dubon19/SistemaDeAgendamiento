@@ -234,5 +234,34 @@ namespace UI
             }
         }
 
+        private void gridCitas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Verificar si el clic es en la columna "Eliminar"
+                if (e.ColumnIndex == gridCitas.Columns["Acción"].Index)
+                {
+                    // El código para eliminar la cita aquí
+                    int citaId = Convert.ToInt32(gridCitas.Rows[e.RowIndex].Cells["CitaId"].Value);
+                    DAL_Citas.Eliminar(citaId);
+                    ListarCitas();  // Volver a cargar las citas
+                }
+            }
+
+        }
+
+        private void btnValidar_Click(object sender, EventArgs e)
+        {
+            int empleadoId = (int)cmbEstilista.SelectedValue;
+            DateTime fecha = dtpCitas.Value.Date; // Fecha seleccionada
+            TimeSpan horaInicio = TimeSpan.Parse(cmbHoraInicio.Text);
+            TimeSpan horaFin = TimeSpan.Parse(cmbHoraFin.Text);
+
+            // Llamar al DAL para validar la disponibilidad
+            string disponibilidad = DAL_Citas.ValidarDisponibilidad(empleadoId, fecha, horaInicio, horaFin);
+
+            // Mostrar el resultado en un MessageBox o en un Label
+            MessageBox.Show(disponibilidad);
+        }
     }
 }

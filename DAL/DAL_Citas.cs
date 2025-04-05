@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using DAL;
 using EL;
@@ -105,4 +106,49 @@ public static class DAL_Citas
             }
         }
     }
+
+
+    public static string ValidarDisponibilidad(int empleadoId, DateTime fecha, TimeSpan horaInicio, TimeSpan horaFin)
+    {
+        try
+        {
+            // Usar la función de la clase Conexion para obtener la cadena de conexión
+            string connectionString = Conexion.ConexionString(); // Aquí utilizamos el método de tu clase Conexion
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Crear el comando para ejecutar el SP
+                SqlCommand command = new SqlCommand("ValidarDisponibilidad", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                // Agregar los parámetros al comando
+                command.Parameters.AddWithValue("@EmpleadoId", empleadoId);
+                command.Parameters.AddWithValue("@Fecha", fecha);
+                command.Parameters.AddWithValue("@HoraInicio", horaInicio);
+                command.Parameters.AddWithValue("@HoraFin", horaFin);
+
+                // Ejecutar el SP y obtener el resultado
+                SqlDataReader reader = command.ExecuteReader();
+
+                // Leer el resultado
+                if (reader.Read())
+                {
+                    return reader["Disponibilidad"].ToString(); // Asumiendo que "Disponibilidad" es el nombre correcto de la columna
+                }
+                else
+                {
+                    return "Error: No se obtuvo resultado de la disponibilidad.";
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            // Manejo de excepciones
+            return "Error al validar disponibilidad: " + ex.Message;
+        }
+    }
+
+
 }
